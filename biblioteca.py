@@ -1,28 +1,31 @@
-class liblio:
- def __init__(s,n):
-  s.n=n
-  s.lb=[]
+class Libro:
+    def __init__(self, titulo, autor, isbn):
+        self.titulo = titulo
+        self.autor = autor
+        self.isbn = isbn
+        self.disponible = True
 
- def addb(s,b):
-  s.lb.append(b)
+    def prestar(self):
+        if self.disponible:
+            self.disponible = False
+            return True
+        return False
 
- def show(s):
-  for x in s.lb:
-   print(x.t,x.a,x.i)
+    def devolver(self):
+        self.disponible = True
 
-class bk:
- def __init__(self,t,a,i):
-  self.t=t
-  self.a=a
-  self.i=i
-  self.e=True
+    def __str__(self):
+        return f"{self.titulo} {self.autor} {self.isbn}"
 
- def prest(self):
-  if self.e==True:
-   self.e=False
-   return True
-  else:
-   return False
 
- def ret(self):
-  self.e=True
+class Biblioteca:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.libros = []
+
+    def agregar_libro(self, libro):
+        self.libros.append(libro)
+
+    def mostrar_libros(self):
+        for libro in self.libros:
+            print(libro)

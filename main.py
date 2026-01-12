@@ -1,16 +1,17 @@
-from biblioteca import *
+"""Script principal del sistema de biblioteca."""
+from biblioteca import Biblioteca, Libro
 
-l=liblio("central")
+biblioteca = Biblioteca("central")
 
-b1=bk("Python","Guido",1)
-b2=bk("Java","Gosling",2)
+libro1 = Libro("Python", "Guido", 1)
+libro2 = Libro("Java", "Gosling", 2)
 
-l.addb(b1)
-l.addb(b2)
+biblioteca.agregar_libro(libro1)
+biblioteca.agregar_libro(libro2)
 
-l.show()
+biblioteca.mostrar_libros()
 
-print(b1.prest())
-print(b1.prest())
-b1.ret()
-print(b1.prest())
+print(libro1.prestar())
+print(libro1.prestar())
+libro1.devolver()
+print(libro1.prestar())
